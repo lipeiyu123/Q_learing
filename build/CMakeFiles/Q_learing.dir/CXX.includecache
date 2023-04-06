@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lpy/test/Q_learing/config.h
+
+/home/lpy/test/Q_learing/main.cpp
+iostream
+-
+q_learing/Qlearing.h
+/home/lpy/test/Q_learing/q_learing/Qlearing.h
+config.h
+/home/lpy/test/Q_learing/config.h
+
+/home/lpy/test/Q_learing/q_learing/Qlearing.h
+Eigen/Dense
+-
+
