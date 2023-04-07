@@ -1,9 +1,10 @@
 #include "Qlearing.h"
 #include "../random/rand.h"
 
-Qlearing::Qlearing(double ga){
+Qlearing::Qlearing(double ga = 0.8 , double lr = 0.9){
                 
                 gamma = ga;
+                learing_rate = lr;
 }
 
 
@@ -69,7 +70,7 @@ double          Qlearing::maxQ( const Eigen::MatrixXd Q , int state){
 
                 double maxq = -65535.0;
                 for(int i = 0 ; i  < 6 ; i++){
-                            if (maxq < Q(state,i)){
+                            if (maxq < (Q(state,i) + double_rand(-5 , 5 ) ) ){
                                         maxq = Q(state,i);
                             }
                 }
@@ -90,4 +91,13 @@ Eigen::MatrixXd        Qlearing::useQ(const Eigen::MatrixXd Q , int state){
                             }
                 }
                 return nextstate_vale;               
+}
+
+
+
+double                         Qlearing::learn(int state , int action  , int state_ ,
+                                                                        Eigen::MatrixXd Q , 
+                                                                        Eigen::MatrixXi R      ){
+
+                return      Q(state , action) +  learing_rate *(  R(state , action) + gamma * maxQ(Q , state_)  -  Q(state , action) );
 }

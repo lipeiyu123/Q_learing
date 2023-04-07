@@ -5,7 +5,7 @@
 
 int main(){
 
-            Qlearing        q(0.8);
+            Qlearing        q(0.8 , 0.9);
             int eps = 0;
             int state = 0;
             int next_state = 0;
@@ -26,7 +26,7 @@ int main(){
                         while(state !=  5){
 
                                     action_nextstete = q.take_action(R , state);
-                                    Q(state , action_nextstete(0)) = R(state , action_nextstete(0)) + q.gamma * q.maxQ(Q , action_nextstete(1));
+                                    Q(state , action_nextstete(0)) = q.learn(state , action_nextstete(0) , action_nextstete(1) , Q , R);
                                     state = action_nextstete(1);
                         }
                         eps++;

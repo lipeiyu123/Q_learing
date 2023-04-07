@@ -4,5 +4,6 @@
 #include <random>
 
 int     int_rand(int min , int max);
+double      double_rand(double min , double max);
 
 #endif
