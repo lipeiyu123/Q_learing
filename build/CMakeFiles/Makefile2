@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/lpy/test/Q_learing/build
 # Target rules for target CMakeFiles/Q_learing.dir
 
 # All Build rule for target.
-CMakeFiles/Q_learing.dir/all: q_learing/CMakeFiles/Qlearing.dir/all
 CMakeFiles/Q_learing.dir/all: q_learing/random_binary_dir/CMakeFiles/random.dir/all
+CMakeFiles/Q_learing.dir/all: q_learing/CMakeFiles/Qlearing.dir/all
 	$(MAKE) -f CMakeFiles/Q_learing.dir/build.make CMakeFiles/Q_learing.dir/depend
 	$(MAKE) -f CMakeFiles/Q_learing.dir/build.make CMakeFiles/Q_learing.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lpy/test/Q_learing/build/CMakeFiles --progress-num=1,2 "Built target Q_learing"

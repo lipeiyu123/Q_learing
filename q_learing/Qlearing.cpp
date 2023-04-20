@@ -1,10 +1,11 @@
 #include "Qlearing.h"
 #include "../random/rand.h"
 
-Qlearing::Qlearing(double ga = 0.8 , double lr = 0.9){
+Qlearing::Qlearing(double ga = 0.8 , double lr = 0.9 , double eps = 0.1){
                 
                 gamma = ga;
                 learing_rate = lr;
+                epsilon = eps;
 }
 
 
@@ -59,8 +60,14 @@ Eigen::VectorXi             Qlearing::take_action(const Eigen::MatrixXi state_tr
                                     action_num++;
                         }
             }
-            action_state(0) = all_action( int_rand(0 , action_num) );
-            action_state(1) = action_state(0);
+            if  (epsilon > double_rand(0.0,1.0)){
+                        action_state(0) = int_rand(0,5);
+                        action_state(1) = action_state(0);
+            }
+            else{
+                        action_state(0) = all_action(action_num);
+                        action_state(1) = action_state(0);
+            }
             return action_state;
 }
 

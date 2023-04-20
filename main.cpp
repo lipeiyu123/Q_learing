@@ -5,10 +5,11 @@
 
 int main(){
 
-            Qlearing        q(0.8 , 0.9);
+            Qlearing        q(0.8 , 0.9 , 0.1);
             int eps = 0;
             int state = 0;
             int next_state = 0;
+            int steps = 0;
 
             Eigen::MatrixXi R = q.init_R();
             Eigen::MatrixXd Q = q.init_Q();
@@ -23,8 +24,8 @@ int main(){
             while(eps < MAX_EPS){
 
                         state = q.choose_state();
-                        while(state !=  5){
-
+                        while((state !=  5) && (steps <= MAX_STEPS)){
+                                    steps ++;
                                     action_nextstete = q.take_action(R , state);
                                     Q(state , action_nextstete(0)) = q.learn(state , action_nextstete(0) , action_nextstete(1) , Q , R);
                                     state = action_nextstete(1);

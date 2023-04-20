@@ -10,12 +10,13 @@
 class Qlearing{
 
                 public:
-                                                                        Qlearing(double ga ,double lr);
+                                                                        Qlearing(double ga ,double lr ,double eps);
                                 Eigen::MatrixXi         init_R();
                                 Eigen::MatrixXd        init_Q();
                                 Eigen::VectorXi         init_action();
                                 double                          gamma;
                                 double                          learing_rate;
+                                double                          epsilon;
                                 int                                   choose_state();
                                 Eigen::VectorXi          take_action( Eigen::MatrixXi state_transfer , int state);
                                 double                          maxQ(Eigen::MatrixXd Q , int state);
